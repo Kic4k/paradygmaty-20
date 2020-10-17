@@ -49,19 +49,19 @@ def potegaI(X: Int, Y: Int): Int = {
 	pom(X,Y)
 }	
 	
-def potegaD(X:Double, Y: Double): Double = {
-	def pom(wyn: Double, Y: Double): Double = Y match {
+def powerD(X:Double, Y: Double): Double = {
+	def help(res: Double, Y: Double): Double = Y match {
 		case x if x<0 => 0
 		case 0 => 1
-		case 1 => wyn
-		case _ => pom(wyn*X, Y-1)
+		case 1 => res
+		case _ => help(res*X, Y-1)
 	}
-	pom(X,Y)
+	help(X,Y)
 }
 
 // 4 test
-potegaD(2,3)
-potegaD(-2,3)
-potegaD(0,3)
-potegaD(3,0)
-potegaD(3,-3)
+powerD(2,3)
+powerD(-2,3)
+powerD(0,3)
+powerD(3,0)
+powerD(3,-3)
